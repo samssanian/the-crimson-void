@@ -1,0 +1,411 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --void-bg: #0a0c0f;
+    --void-cyan: #00ffff;
+    --void-magenta: #ff00aa;
+    --void-gold: #ffcc00;
+    --void-red: #ff3355;
+    --void-purple: #a855f7;
+  }
+
+  html {
+    background-color: #0a0c0f;
+    color: #f1f5f9;
+    font-family: 'Rajdhani', system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+
+  body {
+    background-color: #0a0c0f;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Orbitron', sans-serif;
+  }
+
+  .font-impact {
+    font-family: 'Bangers', cursive;
+    letter-spacing: 0.06em;
+  }
+
+  .font-body {
+    font-family: 'Rajdhani', sans-serif;
+  }
+}
+
+/* Shadow Mode Easter Egg (Konami Code) */
+html.shadow-mode body {
+  filter: invert(1) hue-rotate(180deg);
+  transition: filter 0.6s ease;
+}
+
+/* Pulsing Cyber Grid Background */
+.void-grid-bg {
+  background-image:
+    linear-gradient(to right, rgba(0, 255, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 0, 170, 0.06) 1px, transparent 1px);
+  background-size: 56px 56px;
+  animation: voidGridPulse 6s ease-in-out infinite;
+}
+
+@keyframes voidGridPulse {
+  0%, 100% {
+    opacity: 0.35;
+    transform: translateY(0px);
+  }
+  50% {
+    opacity: 0.65;
+    transform: translateY(-4px);
+  }
+}
+
+/* Screen Shake (6px, 300ms) */
+@keyframes arenaShake {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  15% { transform: translate3d(-6px, 4px, 0); }
+  30% { transform: translate3d(6px, -5px, 0); }
+  45% { transform: translate3d(-5px, -4px, 0); }
+  60% { transform: translate3d(5px, 5px, 0); }
+  75% { transform: translate3d(-3px, 2px, 0); }
+}
+
+.animate-arena-shake {
+  animation: arenaShake 0.3s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+/* Floating Energy Orbs */
+@keyframes floatOrbSlow {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(18px, -24px, 0) scale(1.08); }
+}
+
+.animate-orb-slow {
+  animation: floatOrbSlow 7s ease-in-out infinite;
+}
+
+.animate-orb-reverse {
+  animation: floatOrbSlow 9s ease-in-out infinite reverse;
+}
+
+/* Rune Scroll Banner */
+@keyframes runeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-rune-scroll {
+  animation: runeScroll 28s linear infinite;
+}
+
+/* Live Arena Ticker */
+@keyframes tickerScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-ticker-scroll {
+  animation: tickerScroll 24s linear infinite;
+}
+
+/* 3D Flip Card Helpers */
+.perspective-1200 {
+  perspective: 1200px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Traveling Neon Border Sweep */
+@keyframes borderTravel {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.neon-travel-border {
+  background: linear-gradient(90deg, #00ffff, #ff00aa, #ffcc00, #a855f7, #00ffff);
+  background-size: 300% 300%;
+  animation: borderTravel 4.5s linear infinite;
+}
+
+/* Footer Anime Finale Animations */
+@keyframes cyanLineSweep {
+  0% { transform: scaleX(0); opacity: 0.2; }
+  50% { transform: scaleX(1); opacity: 1; }
+  100% { transform: scaleX(1); opacity: 0; }
+}
+
+.animate-cyan-sweep {
+  animation: cyanLineSweep 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes madeByZoom {
+  0% {
+    opacity: 0;
+    transform: scale(3.2) translateZ(0);
+    filter: blur(14px);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(0.96);
+    filter: blur(0px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0px);
+  }
+}
+
+.animate-made-by {
+  animation: madeByZoom 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes katanaSlash {
+  0% {
+    opacity: 0;
+    transform: translate(-55%, 55%) rotate(-24deg) scaleX(0.1);
+  }
+  30% {
+    opacity: 1;
+    transform: translate(0%, 0%) rotate(-24deg) scaleX(1.15);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(45%, -45%) rotate(-24deg) scaleX(0.8);
+  }
+}
+
+.animate-katana-slash {
+  animation: katanaSlash 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes letterSlam {
+  0% {
+    opacity: 0;
+    transform: translateY(-32px) scale(2.1);
+    filter: blur(6px);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(3px) scale(0.95);
+    filter: blur(0px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0px);
+  }
+}
+
+.animate-letter-slam {
+  animation: letterSlam 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes letterGlowCycle {
+  0%, 100% {
+    color: #00ffff;
+    text-shadow: 0 0 14px rgba(0, 255, 255, 0.85), 0 0 30px rgba(0, 255, 255, 0.4);
+  }
+  33% {
+    color: #ff00aa;
+    text-shadow: 0 0 14px rgba(255, 0, 170, 0.85), 0 0 30px rgba(255, 0, 170, 0.4);
+  }
+  66% {
+    color: #ffcc00;
+    text-shadow: 0 0 18px rgba(255, 204, 0, 0.9), 0 0 34px rgba(255, 204, 0, 0.45);
+  }
+}
+
+.animate-letter-cycle {
+  animation: letterGlowCycle 3.6s ease-in-out infinite;
+}
+
+@keyframes conicRingSpin {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.05); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+.animate-conic-aura {
+  animation: conicRingSpin 9s linear infinite;
+}
+
+@keyframes shockwaveRipple {
+  0% {
+    opacity: 0.9;
+    transform: scale(0.2);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2.6);
+  }
+}
+
+.animate-shockwave {
+  animation: shockwaveRipple 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes shineSweep {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.animate-shine-sweep {
+  background: linear-gradient(110deg, transparent 35%, rgba(255, 255, 255, 0.65) 50%, transparent 65%);
+  background-size: 200% 100%;
+  animation: shineSweep 3s ease-in-out infinite;
+}
+
+/* E-Commerce Animations (The Armory, Cart, Checkout, Admin Orders) */
+@keyframes holoShimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.holo-card-border {
+  background: linear-gradient(125deg, rgba(0, 255, 255, 0.7), rgba(255, 0, 170, 0.7), rgba(255, 204, 0, 0.7), rgba(168, 85, 247, 0.7), rgba(0, 255, 255, 0.7));
+  background-size: 300% 300%;
+  animation: holoShimmer 5s ease infinite;
+}
+
+@keyframes cartBounce {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.22) rotate(-6deg); }
+  55% { transform: scale(0.92) rotate(4deg); }
+  80% { transform: scale(1.08); }
+}
+
+.animate-cart-bounce {
+  animation: cartBounce 0.48s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes qtyPop {
+  0% { transform: scale(0.8); }
+  50% { transform: scale(1.28); color: #00ffff; }
+  100% { transform: scale(1); }
+}
+
+.animate-qty-pop {
+  animation: qtyPop 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes drawerSlideIn {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(0); }
+}
+
+.animate-drawer-in {
+  animation: drawerSlideIn 0.34s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes checkmarkDraw {
+  0% { stroke-dashoffset: 1; }
+  100% { stroke-dashoffset: 0; }
+}
+
+.animate-checkmark-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: checkmarkDraw 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes newOrderFlash {
+  0% {
+    opacity: 1;
+    transform: translateY(-8px);
+    box-shadow: 0 0 28px rgba(255, 51, 85, 0.75);
+    border-color: #ff3355;
+  }
+  40% {
+    opacity: 1;
+    transform: translateY(0);
+    box-shadow: 0 0 24px rgba(255, 51, 85, 0.55);
+    border-color: #ff3355;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    box-shadow: 0 0 0 rgba(255, 51, 85, 0);
+  }
+}
+
+.animate-new-order {
+  animation: newOrderFlash 1.4s ease-out forwards;
+}
+
+@keyframes promoFloat {
+  0% { opacity: 0; transform: translateY(6px) scale(0.92); }
+  20% { opacity: 1; transform: translateY(0) scale(1); }
+  80% { opacity: 1; transform: translateY(-4px) scale(1); }
+  100% { opacity: 0; transform: translateY(-12px) scale(0.98); }
+}
+
+.animate-promo-float {
+  animation: promoFloat 2.4s ease-out forwards;
+}
+
+@keyframes heroTextRise {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+    filter: blur(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0px);
+  }
+}
+
+.animate-hero-rise {
+  animation: heroTextRise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes bootProgressSweep {
+  0% {
+    transform: scaleX(0.08);
+  }
+  65% {
+    transform: scaleX(0.84);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+.animate-boot-progress {
+  transform-origin: left center;
+  animation: bootProgressSweep 2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .void-grid-bg,
+  .animate-orb-slow,
+  .animate-orb-reverse,
+  .animate-rune-scroll,
+  .animate-ticker-scroll,
+  .neon-travel-border,
+  .holo-card-border,
+  .animate-conic-aura,
+  .animate-letter-cycle,
+  .animate-shine-sweep,
+  .animate-hero-rise,
+  .animate-boot-progress {
+    animation: none !important;
+  }
+}

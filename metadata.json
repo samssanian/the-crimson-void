@@ -1,0 +1,6 @@
+{
+  "name": "The Crimson Void — Sams Sanian Ahamod",
+  "description": "Ultra-modern anime fighting action lore experience set in The Crimson Void above Neo-Kyoto 2187, featuring Sams Sanian Ahamod, interactive battles, procedural Web Audio SFX, and a cinematic finale.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
